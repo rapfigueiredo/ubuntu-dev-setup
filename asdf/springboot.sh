@@ -43,5 +43,10 @@ asdf install maven 3.6.3
 # set default maven
 asdf local maven 3.6.3
 
+asdf install gradle 6.8.2
+
+# set default gradle
+asdf local gradle 6.8.2
+
 
 
