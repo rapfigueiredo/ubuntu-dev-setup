@@ -1,0 +1,14 @@
+- hosts: "{{ var_host }}"
+  strategy: linear
+  tasks:
+  - name: Copy multiple files
+    copy:
+      src: "{{ item.src }}"
+      dest: "{{ item.dest }}"
+      mode: "{{item.mode}}"
+      force: "{{item.force}}"
+    with_items:
+      - { src: '.local/bin/trivy', dest: '.local/bin/', mode: 'preserve', force: 'yes' }
+      - { src: './trivy/templates/junit.tpl', dest: './trivy/templates/', mode: 'preserve', force: 'yes' }
+
+
