@@ -1,0 +1,1 @@
+cp -rf .local/bin/trivy  ~/.local/bin/trivy
