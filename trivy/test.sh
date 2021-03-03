@@ -1,3 +1,4 @@
+#!/bin/sh
 IMAGE_NAME=${1}
 
 rm -rf test-junit-report-low-med.xml
