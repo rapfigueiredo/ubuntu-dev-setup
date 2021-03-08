@@ -1,5 +1,6 @@
 #!/bin/sh
 asdf update
+asdf plugin update
 
 #springboot suport java version https://start.spring.io/
 
