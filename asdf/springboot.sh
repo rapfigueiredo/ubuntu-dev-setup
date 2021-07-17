@@ -14,9 +14,9 @@ asdf plugin update
 #Zulu https://www.azul.com/downloads/zulu-community/?package=jdk
 #azure https://docs.microsoft.com/pt-br/azure/developer/java/fundamentals/java-jdk-install
 #azure https://docs.microsoft.com/pt-br/azure/developer/java/fundamentals/java-jdk-long-term-support
-asdf install java zulu-15.29.15
-asdf install java zulu-11.45.27
-asdf install java zulu-8.52.0.23
+asdf install java latest:zulu-15
+asdf install java latest:zulu-11
+asdf install java latest:zulu-8
 
 #aws  https://aws.amazon.com/pt/corretto/
 #asdf install java corretto-8.282.08.1
@@ -38,7 +38,7 @@ asdf install java zulu-8.52.0.23
 
 
 #default jdk 11 LTS
-asdf local java zulu-11.45.27
+asdf local $(asdf latest java zulu-11)
 
 asdf install maven 3.6.3
 
