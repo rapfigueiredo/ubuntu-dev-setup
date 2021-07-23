@@ -8,4 +8,8 @@ asdf plugin-add rust https://github.com/code-lever/asdf-rust.git
 asdf plugin-add maven
 asdf plugin-add gradle https://github.com/rfrancis/asdf-gradle.git
 
+asdf plugin-add consul https://github.com/asdf-community/asdf-hashicorp.git
+asdf plugin-add vault https://github.com/asdf-community/asdf-hashicorp.git
+asdf plugin-add terraform https://github.com/asdf-community/asdf-hashicorp.git
+
 asdf plugin list
