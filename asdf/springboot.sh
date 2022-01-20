@@ -1,54 +1,43 @@
 #!/bin/sh
+#dependecies apt install unzip
+
+unzip -v || echo "install unzip 'sudo apt install unzip"
 asdf update
 asdf plugin update
 
-#springboot suport java version https://start.spring.io/
+MAVEN_VERSION=3.8.4
+GRADLE_VERSION=7.3.3
 
-#https://www.pentalog.com/blog/java-versions-distributions-platforms
 
-#adptopenjdk https://adoptopenjdk.net/supported_platforms.html
-#asdf install java adoptopenjdk-8.0.282+8
-#asdf install java adoptopenjdk-11.0.10+9
-#asdf install java adoptopenjdk-15.0.2+7
-
-#Zulu https://www.azul.com/downloads/zulu-community/?package=jdk
-#azure https://docs.microsoft.com/pt-br/azure/developer/java/fundamentals/java-jdk-install
-#azure https://docs.microsoft.com/pt-br/azure/developer/java/fundamentals/java-jdk-long-term-support
-asdf install java latest:zulu-15
+#https://docs.microsoft.com/en-us/azure/developer/java/fundamentals/java-support-on-azure
+asdf install java latest:zulu-17
 asdf install java latest:zulu-11
 asdf install java latest:zulu-8
 
-#aws  https://aws.amazon.com/pt/corretto/
-#asdf install java corretto-8.282.08.1
-#asdf install java corretto-11.0.10.9.1
-#asdf install java corretto-15.0.2.7.1
+asdf install java latest:temurin-8
+asdf install java latest:temurin-11
+asdf install java latest:temurin-17
 
-#alibaba https://github.com/alibaba/dragonwell11
-#asdf install java dragonwell-8.5.5
-#asdf install java dragonwell-11.0.7.2+9
+asdf install java latest:microsoft-11
+asdf install java latest:microsoft-17
 
-#oracle https://www.graalvm.org/
-#asdf install java graalvm-20.2.0+java8
-#asdf install java graalvm-20.2.0+java11
+#default jdk 11 LTS  zulu-11 or temurin-11
+asdf local java $(asdf latest java temurin-11)
 
-#liberica https://bell-sw.com/
-#asdf install java liberica-8u282+8
-#asdf install java liberica-11.0.10+9
-#asdf install java liberica-15.0.2+10
-
-
-#default jdk 11 LTS
-asdf local $(asdf latest java zulu-11)
-
-asdf install maven 3.6.3
+asdf install maven ${MAVEN_VERSION}
 
 # set default maven
-asdf local maven 3.6.3
+asdf local maven  ${MAVEN_VERSION}
 
-asdf install gradle 6.8.2
+
+asdf install gradle ${GRADLE_VERSION}
 
 # set default gradle
-asdf local gradle 6.8.2
+asdf local gradle ${GRADLE_VERSION}
 
+
+echo "JAVA_HOME:$(asdf which java)"
+echo "MAVEN_HOME:/home/rogerio/.asdf/installs/maven/${MAVEN_VERSION}" 
+echo "GRADLE_HOME:$(asdf which gradle)"
 
 
