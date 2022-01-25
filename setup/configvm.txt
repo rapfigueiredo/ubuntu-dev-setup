@@ -1,0 +1,61 @@
+#In powershell check wsl
+>wsl -l -v
+NAME            STATE           VERSION
+* Ubuntu-20.04    Running         2
+
+
+
+# Start Ubuntu-20.04
+# install && update  ubuntu 
+sudo apt update
+sudo apt upgrade -y
+sudo apt install -y fontconfig daemonize unzip  curl git
+
+sudo reboot
+
+
+#add in /etc/profile  
+
+SYSTEMD_PID=$(ps -ef | grep '/lib/systemd/systemd --system-unit=basic.target$' | grep -v unshare | awk '{print $2}')
+
+if [ -z "$SYSTEMD_PID" ]; then
+           sudo /usr/bin/daemonize /usr/bin/unshare --fork --pid --mount-proc /lib/systemd/systemd --system-unit=basic.target
+              SYSTEMD_PID=$(ps -ef | grep '/lib/systemd/systemd --system-unit=basic.target$' | grep -v unshare | awk '{print $2}')
+fi
+
+if [ -n "$SYSTEMD_PID" ] && [ "$SYSTEMD_PID" != "1" ]; then
+            exec sudo /usr/bin/nsenter -t $SYSTEMD_PID -a su - $LOGNAME
+fi
+
+# add in /etc/sudoers    
+
+# Allow members of group sudo to execute any command
+%sudo   ALL=(ALL:ALL) ALL
+%sudo ALL=(ALL) NOPASSWD: /usr/sbin/daemonize /usr/bin/unshare --fork --pid --mount-proc /lib/systemd/systemd --system-unit=basic.target
+%sudo ALL=(ALL) NOPASSWD: /usr/bin/nsenter -t [0-9]* -a su - [a-zA-Z0-9]*
+# See sudoers(5) for more information on "#include" directives:
+
+sudo reboot
+
+$sudo su -
+# snap version
+snap    2.53.4
+snapd   2.53.4
+series  16
+ubuntu  20.04
+kernel  5.10.43.3-microsoft-standard-WSL2
+
+#snap install docker
+#snap install cvescan
+#snap install microk8s --classic
+
+#addgroup --system docker
+#exit
+$sudo adduser $USER docker
+$newgrp docker
+$sudo su -
+#snap disable docker
+#snap enable docker
+#snap alias microk8s.kubectl kubectl
+#exit
+export DOCKER_BUILDKIT=1
