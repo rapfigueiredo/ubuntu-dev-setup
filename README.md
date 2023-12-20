@@ -2,8 +2,14 @@
 
 ## asdf
 
-## docker
+## azure-cli
 
-## microk8s
+## container-structure-test
+
+## cvescan
+
+## setup
+
+## trivy
 
 
