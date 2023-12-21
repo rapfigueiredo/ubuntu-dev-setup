@@ -1,6 +1,6 @@
-maven 3.6.3
-java zulu-11.48.21
-gradle 6.8.2
+maven 3.9.6
+java microsoft-21.0.1
+gradle 8.5
 consul 1.10.1
 vault 1.7.3
 terraform 1.0.3
