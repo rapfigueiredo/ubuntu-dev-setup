@@ -10,13 +10,18 @@ GRADLE_VERSION=8.5
 
 
 #https://docs.microsoft.com/en-us/azure/developer/java/fundamentals/java-support-on-azure
+asdf plugin-add java https://github.com/halcyon/asdf-java.git
+asdf plugin-add maven
+
+asdf update
+asdf plugin update
+
 asdf install java latest:temurin-8
 asdf install java latest:microsoft-11
 asdf install java latest:microsoft-17
 asdf install java latest:microsoft-21
 # set default local java
 asdf local java latest:microsoft-21
-
 
 asdf install maven ${MAVEN_VERSION}
 

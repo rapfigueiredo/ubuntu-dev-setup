@@ -1,5 +1,10 @@
 #!/bin/bash
 #https://docs.microsoft.com/en-us/azure/developer/java/fundamentals/java-support-on-azure
+asdf plugin-add java https://github.com/halcyon/asdf-java.git
+asdf plugin-add maven
+
+asdf update
+asdf plugin update
 
 MAVEN_VERSION=3.9.6
 
