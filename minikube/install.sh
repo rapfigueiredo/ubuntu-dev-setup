@@ -5,7 +5,9 @@ sudo install minikube-linux-amd64 /usr/local/bin/minikube
 rm -rf minikube-linux-amd64
 
 [ "$(cat ~/.bashrc | grep  "kubectl"  | wc -l)" -eq "0" ] && { echo "alias kubectl=\"minikube kubectl --\"" >> ~/.bashrc; echo "alias k=\"kubectl\"" >> ~/.bashrc; }
-[ "$(cat ~/.bashrc | grep  "minikube start" | wc -l)" -eq "0" ] &&  echo "minikube start" >> ~/.bashrc
+[ "$(cat ~/.bashrc | grep  "minikube start" | wc -l)" -eq "0" ] &&  echo "minikube status | grep \"Stopped\" | wc -l | xargs -I {}  bash -c '[[ \"\$1\" -eq \"4\"  ]] && minikube start' -- {}" >> ~/.bashrc
+
+
 
 cat ~/.bashrc
 
