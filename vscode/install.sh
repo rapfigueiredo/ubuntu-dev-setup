@@ -1,5 +1,5 @@
 #!/bin/sh
-sudo apt-get install x11-apps x11-xkb-utils
+sudo apt-get install x11-apps x11-xkb-utils  ca-certificates
 sudo apt-get install wget gpg
 wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
 sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
@@ -14,5 +14,5 @@ echo "export WAYLAND_DISPLAY='wayland-1' && setxkbmap -model abnt2 -layout br -v
 
 mkdir -p $HOME/.config/Code/User/
 
-cp -rf ,/.config/Code/User/settings.json $HOME/.config/Code/User/settings.json
+cp -rf ./.config/Code/User/settings.json $HOME/.config/Code/User/settings.json
 
