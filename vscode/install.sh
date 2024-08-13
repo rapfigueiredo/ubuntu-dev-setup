@@ -12,5 +12,7 @@ sudo apt install code # or code-insiders
 
 echo "export WAYLAND_DISPLAY='wayland-1' && setxkbmap -model abnt2 -layout br -variant abnt2" >> ~/.bashrc
 
-cp -rf .config/Code/User/settings.json $HOME/.config/Code/User/settings.json
+mkdir -p $HOME/.config/Code/User/
+
+cp -rf ,/.config/Code/User/settings.json $HOME/.config/Code/User/settings.json
 
