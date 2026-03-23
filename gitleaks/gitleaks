@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+# Diretório atual (ou passado como argumento)
+TARGET_DIR="${1:-$(pwd)}"
+
+echo "[INFO] Executando Gitleaks via Docker..."
+echo "[INFO] Diretório analisado: $TARGET_DIR"
+
+docker run --rm \
+  -v "$TARGET_DIR":/repo \
+  zricethezav/gitleaks \
+  detect \
+  --source /repo \
+  -v
