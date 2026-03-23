@@ -1,4 +1,5 @@
 #!/bin/sh
-VERSION=latest
+VERSION="0.69.3"
+echo "VERSION: $VERSION"
 docker pull aquasec/trivy:${VERSION}
 exec docker run --rm  -v /var/run/docker.sock:/var/run/docker.sock  -v $HOME/.cache:/root/.cache/ -v $(pwd):$(pwd) -w "$(pwd)" aquasec/trivy:${VERSION} "$@"
